@@ -1,0 +1,29 @@
+<div class="col-md-6 book-container">
+    <h2 class="text-center">Add Book</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Book name:</label>
+        <input type="text" formControlName="name" placeholder="name" name="name" class="form-control" id="name" required>
+        <div *ngIf="name.invalid && submitted" class="text-danger">
+            <div *ngIf="name.errors.required">Name is required.</div> 
+          </div>
+      </div>
+      
+      <div class="form-group">
+            <label for="isBorrowed">Is Borrowed</label>
+            <input type="text" formControlName="isBorrowed" placeholder="isBorrowed" name="isBorrowed" class="form-control" id="isBorrowed" required >
+            <div *ngIf="isBorrowed.invalid && submitted" class="text-danger">
+                <div *ngIf="isBorrowed.errors.required">isBorrowed is required.</div> 
+              </div>
+          </div>
+  
+      <!--<div class="form-group">
+        <label for="date_of_borrow">Date of borrow:</label>
+        <input type="number" formControlName="date_of_borrow" placeholder="Date of Borrow" name="date_of_borrow" class="form-control" id="date_of_borrow">
+    
+      </div> -->
+
+      <button class="btn btn-success">Save</button>
+    </form>
+  </div>

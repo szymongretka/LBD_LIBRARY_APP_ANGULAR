@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="text-center">All Books</h2>
+    <button class="btn btn-success" style="width:120px" (click)="addBook()"> Add Book </button><br>
+    <div class="divider"></div>
+
+    <div class="row" *ngFor="let book of books">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <button class="list-group-item" (click)="onSelectedBook(book)" style="width:600px"> 
+              <b>{{book.name | uppercase}}</b><br>
+            </button>
+              <!---->
+              <div *ngIf="selectedBook && selectedBook.id === book.id">
+                  <div>
+                    <label for="details">Details:</label><br>
+                    <input type="text" id="details" [(ngModel)]="selectedBook.isBorrowed" name="details" size="100">
+                    <div class="btn btn-group">
+                      <button class="btn btn-success" (click)="saveDetails(selectedBook)" style="margin-left: 20px;">Save</button>
+                      <button class="btn btn-success" (click)="editBook(selectedBook)" style="margin-left: 20px;">Edit</button>
+                      <button class="btn btn-danger" (click)="deleteBook(selectedBook)" style="margin-left: 20px;">Delete</button>
+                    </div>
+                  </div>
+              </div>
+
+        </ul>
+      </div>
+    </div>
+
+</div>

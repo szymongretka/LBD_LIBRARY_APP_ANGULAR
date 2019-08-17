@@ -1,0 +1,43 @@
+<div class="container">
+    <h2 class="text-center">Clients</h2>
+    <button class="btn btn-success" style="width:120px" (click)="addClient()"> Add Client </button><br>
+    <div class="divider"></div>
+
+    <div class="row" *ngFor="let client of clients">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <button class="list-group-item" (click)="onSelectedClient(client)" (click)="getBooksFromCLient(client)" style="width:600px"> 
+              <b>{{client.firstName | uppercase}}</b> 
+              <b> {{client.lastName | uppercase}}</b>
+
+            </button>
+              <!---->
+              <div *ngIf="selectedClient && selectedClient.id === client.id">
+                    <label for="details">Borrowed books:</label><br>
+                    <div class="row" *ngFor="let clientBook of clientBooks">
+                        <div class="col-md-3">
+                          <ul class="list-group">
+                            <button class="list-group-item" (click)="onSelectedBook(clientBook)"> 
+                                <b>{{clientBook.name}}</b>
+                            </button>
+                                <div *ngIf="selectedBook && selectedBook.id === clientBook.id">
+                                    <div class="btn btn-group">
+                                        <button class="btn btn-success" (click)="returnBook(selectedBook)" style="margin-left: 20px;">Return book</button>
+                                      </div>
+                                </div>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="btn btn-group">
+                      <button class="btn btn-success" (click)="saveDetails(selectedClient)" style="margin-left: 20px;">Save</button>
+                      <button class="btn btn-success" (click)="editClient(selectedClient)" style="margin-left: 20px;">Edit</button>
+                      <button class="btn btn-danger" (click)="deleteClient(selectedClient)" style="margin-left: 20px;">Delete</button>
+                    </div>
+                  </div>
+              
+
+        </ul>
+      </div>
+    </div>
+
+</div>
