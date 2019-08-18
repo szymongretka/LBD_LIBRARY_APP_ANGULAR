@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Book, BookAttrs } from '../models/book';
+import { Client } from '../models/client';
+import { BorrowBookComponent } from '../book-tracking/borrow-book/borrow-book.component';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +21,7 @@ import { Book, BookAttrs } from '../models/book';
     }
   
     getBookById(id: number): Observable<Book> {
-      return this.http.get<BookAttrs>(this.baseUrl + id);
+      return this.http.get<BookAttrs>(this.baseUrl + "/" + id);
     }
   
     createBook(book: Book): Observable<Book> {
@@ -27,10 +29,14 @@ import { Book, BookAttrs } from '../models/book';
     }
   
     updateBook(book: Book): Observable<Book> {
-      return this.http.put<BookAttrs>(this.baseUrl + book.id, book);
+      return this.http.put<BookAttrs>(this.baseUrl + "/" + book.id, book);
     }
   
     deleteBook(id: number): Observable<Book> {
       return this.http.delete<Book>(this.baseUrl + id);
+    }
+
+    setBookToClient(id: number, client: Client): Observable<Book>{
+      return this.http.put<BookAttrs>(this.baseUrl + "/" + id + "/borrow", client);
     }
 }

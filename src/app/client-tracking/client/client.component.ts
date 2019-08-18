@@ -65,8 +65,10 @@ export class ClientComponent implements OnInit {
     });
   }
 
-  returnBook(book: Book): void{
-    
+  returnBook(client: Client, book: Book): void{
+    this.subscribedClients = this.clientService.deleteBookFromClient(client.id, book.id).subscribe( 
+      data => { this.clientBooks = this.clientBooks.filter(u => u !== book);
+    })
   }
 
   addClient(): void {

@@ -1,0 +1,24 @@
+<div class="col-md-6 book-container">
+        <h2 class="text-center">Borrow book</h2>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    
+          <div class="form-group">
+            <label>Select client:</label>
+            <select class="form-control" formControlName="client" 
+            formControlGroup="client" placeholder="client" name="client" id="client" 
+            [ngModel]="selectedClient" (ngModelChange)="onClientChange($event)"
+            required>
+                <option *ngFor="let client of clients" [ngValue]="client">
+                    {{client.firstName}}
+                    {{ client.lastName}}
+                    
+                </option> 
+                <div *ngIf="client.invalid && submitted" class="invalid-feedback">
+                    <div *ngIf="client.errors.required">Client is required.</div> 
+                </div>
+            </select>
+          </div>
+    
+          <button class="btn btn-success">Save</button>
+        </form>
+      </div>

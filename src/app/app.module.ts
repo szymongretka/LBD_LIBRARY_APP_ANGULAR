@@ -18,6 +18,8 @@ import { ClientTrackingModule } from './client-tracking/client-tracking.module';
 import { AuthorTrackingModule } from './author-tracking/author-tracking.module';
 import { CategoryTrackingModule } from './category-tracking/category-tracking.module';
 import { CreateClientComponent } from './client-tracking/create-client/create-client.component';
+import { BorrowBookComponent } from './book-tracking/borrow-book/borrow-book.component';
+import { BookDetailComponent } from './book-tracking/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,12 @@ import { CreateClientComponent } from './client-tracking/create-client/create-cl
     FormsModule,
     RouterModule.forRoot([
       {path: 'books', component: BookComponent},
-      //{path: 'books/:id', component: BookDetailComponent},
+      {path: 'books/:id', component: BookDetailComponent},
       {path: 'create-book', component: CreateBookComponent},
       {path: 'edit-Book', component: EditBookComponent},
       {path: 'clients', component: ClientComponent},
       {path: 'create-client', component: CreateClientComponent},
+      {path: 'borrow-book', component: BorrowBookComponent},
       {path: '', component: DefaultComponent}
     ])
   ],

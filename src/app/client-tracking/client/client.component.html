@@ -22,7 +22,7 @@
                             </button>
                                 <div *ngIf="selectedBook && selectedBook.id === clientBook.id">
                                     <div class="btn btn-group">
-                                        <button class="btn btn-success" (click)="returnBook(selectedBook)" style="margin-left: 20px;">Return book</button>
+                                        <button class="btn btn-success" (click)="returnBook(selectedClient, selectedBook)" style="margin-left: 20px;">Return book</button>
                                       </div>
                                 </div>
                           </ul>
@@ -31,7 +31,7 @@
                     <div class="btn btn-group">
                       <button class="btn btn-success" (click)="saveDetails(selectedClient)" style="margin-left: 20px;">Save</button>
                       <button class="btn btn-success" (click)="editClient(selectedClient)" style="margin-left: 20px;">Edit</button>
-                      <button class="btn btn-danger" (click)="deleteClient(selectedClient)" style="margin-left: 20px;">Delete</button>
+                      <!--<button class="btn btn-danger" (click)="deleteClient(selectedClient)" style="margin-left: 20px;">Delete</button>-->
                     </div>
                   </div>
               
@@ -39,5 +39,6 @@
         </ul>
       </div>
     </div>
+    
 
 </div>

@@ -69,6 +69,12 @@ export class BookComponent implements OnInit {
     this.router.navigate(['/edit-book/']);
   };
 
+  borrowBook(book: Book): void {
+    window.localStorage.removeItem("editBookId");
+    window.localStorage.setItem("editBookId", book.id.toString());
+    this.router.navigate(['borrow-book']);
+  }
+
   saveDetails(book: Book): void{
     this.BookService.updateBook(book).subscribe();
   }

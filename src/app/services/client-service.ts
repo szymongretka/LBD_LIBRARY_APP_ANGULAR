@@ -22,6 +22,10 @@ import { Book, BookAttrs } from '../models/book';
     getBooksFromCLient(id: number): Observable<Book[]> {
       return this.http.get<BookAttrs[]>(this.baseUrl + "/" + id + "/books");
     }
+
+    deleteBookFromClient(clientId: number, bookId: number) {
+      return this.http.delete<BookAttrs[]>(this.baseUrl + "/" + clientId + "/" + bookId);
+    }
   
     getClientById(id: number): Observable<Client> {
       return this.http.get<ClientAttrs>(this.baseUrl + id);

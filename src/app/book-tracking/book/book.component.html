@@ -13,9 +13,13 @@
               <div *ngIf="selectedBook && selectedBook.id === book.id">
                   <div>
                     <label for="details">Details:</label><br>
-                    <input type="text" id="details" [(ngModel)]="selectedBook.isBorrowed" name="details" size="100">
+                    <!--<input type="text" id="details" [(ngModel)]="selectedBook.isBorrowed" name="details" size="100">-->
+                    <b>{{book.authors}}</b><br>
+                    <b>{{book.categories}}</b><br>
+
                     <div class="btn btn-group">
-                      <button class="btn btn-success" (click)="saveDetails(selectedBook)" style="margin-left: 20px;">Save</button>
+                      <button class="btn btn-success" (click)="borrowBook(selectedBook)" style="margin-left: 20px;">Borrow</button>
+                      <!--<button class="btn btn-success" (click)="saveDetails(selectedBook)" style="margin-left: 20px;">Save</button>-->
                       <button class="btn btn-success" (click)="editBook(selectedBook)" style="margin-left: 20px;">Edit</button>
                       <button class="btn btn-danger" (click)="deleteBook(selectedBook)" style="margin-left: 20px;">Delete</button>
                     </div>
